@@ -114,18 +114,18 @@ class TimekeeperWindow(pyglet.window.Window):
                                      self.suny - LBD * sin(self.angle + pi/2),
                                      self.sunx + LBD * cos(self.angle + pi/2),
                                      self.suny + LBD * sin(self.angle + pi/2))
-        self.perihelion_label.x = self.sunx + LBD * cos(self.angle + LONG_PER)
-        self.perihelion_label.y = self.suny + LBD * sin(self.angle + LONG_PER)
-        self.aphelion_label.x = self.sunx - LBD * cos(self.angle + LONG_PER)
-        self.aphelion_label.y = self.suny - LBD * sin(self.angle + LONG_PER)
-        self.autumnal_label.x = self.sunx + LBD * cos(self.angle)
-        self.autumnal_label.y = self.suny + LBD * sin(self.angle)
-        self.vernal_label.x = self.sunx - LBD * cos(self.angle)
-        self.vernal_label.y = self.suny - LBD * sin(self.angle)
-        self.south_label.x = self.sunx + LBD * cos(self.angle + pi/2)
-        self.south_label.y = self.suny + LBD * sin(self.angle + pi/2)
-        self.north_label.x = self.sunx - LBD * cos(self.angle + pi/2)
-        self.north_label.y = self.suny - LBD * sin(self.angle + pi/2)
+        self.perihelion_label.x = int(self.sunx + LBD * cos(self.angle + LONG_PER))
+        self.perihelion_label.y = int(self.suny + LBD * sin(self.angle + LONG_PER))
+        self.aphelion_label.x = int(self.sunx - LBD * cos(self.angle + LONG_PER))
+        self.aphelion_label.y = int(self.suny - LBD * sin(self.angle + LONG_PER))
+        self.autumnal_label.x = int(self.sunx + LBD * cos(self.angle))
+        self.autumnal_label.y = int(self.suny + LBD * sin(self.angle))
+        self.vernal_label.x = int(self.sunx - LBD * cos(self.angle))
+        self.vernal_label.y = int(self.suny - LBD * sin(self.angle))
+        self.south_label.x = int(self.sunx + LBD * cos(self.angle + pi/2))
+        self.south_label.y = int(self.suny + LBD * sin(self.angle + pi/2))
+        self.north_label.x = int(self.sunx - LBD * cos(self.angle + pi/2))
+        self.north_label.y = int(self.suny - LBD * sin(self.angle + pi/2))
 
     def update(self, dt=0.0):
         utc = datetime.utcnow() + self.adjustment
@@ -138,7 +138,7 @@ class TimekeeperWindow(pyglet.window.Window):
     def on_draw(self):
         self.clear()
 
-        glLoadIdentity()
+        #glLoadIdentity()
 
         self.utc_label.draw()
         self.loc_label.draw()
